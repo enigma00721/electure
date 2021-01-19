@@ -22,9 +22,25 @@ Auth::routes();
 
 Route::group(['prefix' => 'coordinator', 'middleware' => 'coordinator'], function()
 {
-    // Your routes
 
     Route::get('/','App\Http\Controllers\CoordinatorController@index');
+    
+    // courses
+    Route::group(['prefix' => 'courses'], function()
+    {
+        Route::get('/',function () {
+            return view('coordinator.courses');
+        });
+        // Route::post('/',function () {
+        //     return view('coordinator.courses');
+        // });
+        // Route::put('/{id}',function () {
+        //     return view('coordinator.courses');
+        // });
+        // Route::delete('/{id}',function () {
+        //     return view('coordinator.courses');
+        // });
+    });
 });
 
 // roles
