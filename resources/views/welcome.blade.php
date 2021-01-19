@@ -4,224 +4,197 @@
 @section('content')
 
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+      <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+        @if (Route::has('login'))
+            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                @auth
+                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                @else
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <!-- body -->
-       <div class="hero-full-container background-image-container white-text-container">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <h1>E-Lecture Management</h1>
-          <p>A portal for all lecture file sharing</p>
-          <br>
-          <a href="{{ route('login') }}" class="btn btn-default btn-lg" title="">Login</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-container">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-8 col-md-offset-2">
-          <div class="text-center">
-            <h2>What is E-Learning ?</h2>
-            <p>A learning system based on formalised teaching but with the help of electronic resources is known as E-learning. 
-                While teaching can be based in or out of the classrooms, the use of computers and the Internet forms the major component of E-learning.
-            </p>
-          </div>
-       </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-container">
-    <div class="container">
-      <div class="row">      
-          <div class="col-xs-12">
-
-
-            <div id="carousel-example-generic" class="carousel carousel-fade slide" data-ride="carousel">
-                
-                <div class="carousel-inner" role="listbox">
-
-                    <div class="item active">
-                        <img class="img-responsive" src="./assets/images/img-06.jpg" alt="First slide">
-                        <div class="carousel-caption card-shadow reveal">
-                          
-                          <h3>Moon</h3>
-                          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                            <span class="sr-only">Next</span>
-                          </a>
-                          <p>
-                            Sed id tellus in risus pre
-                            tium imperdiet eu lobortis dolor. Sed pellentesque, urna ac viverra lacinia, erat mauris venenatis purus, mollis egestas urna purus ac ex.
-                            Aenean nunc sem, lobortis at elit non, lobortis laoreet nibh. Maecenas at mi ipsum.
-                          </p>
-                          
-                          <p>
-                            Quisque tempor, ligula pharetra luctus elementum, arcu nisl suscipit ante, pharetra commodo dui est et enim. Sed eu vestibulum elit. Donec ut libero non.
-                          </p>
-                          <a href="./project.html" class="btn btn-primary" title="">
-                            Discover
-                          </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="./assets/images/img-07.jpg" alt="First slide">
-                        <div class="carousel-caption card-shadow reveal">
-
-                          <h3>Lbortis</h3>
-                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                              <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                              <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          <p>
-                            Pre id tellus in risus pre
-                            tium imperdiet eu lobortis dolor. Sed pellentesque, urna ac viverra lacinia, erat mauris venenatis purus, mollis egestas urna purus ac ex.
-                            Aenean nunc sem, lobortis at elit non, lobortis laoreet nibh. Maecenas at mi ipsum.
-                          </p>
-                          
-                          <p>
-                            Quisque tempor, ligula pharetra luctus elementum, arcu nisl suscipit ante, pharetra commodo dui est et enim. Sed eu vestibulum elit. Donec ut libero non.
-                          </p>
-                          <a href="./project.html" class="btn btn-primary" title="">
-                            Discover
-                          </a>
-                        </div>
-                    </div>
-                </div>
-               
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                    @endif
+                @endauth
             </div>
-
-           
+        @endif
+      <!-- body -->
+      <div class="hero-full-container background-image-container white-text-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1>E-Lecture Portal</h1>
+              <p>A portal for all lecture file sharing</p>
+              <br>
+              <a href="{{ route('login') }}" class="btn btn-default btn-lg" title="">Login</a>
+            </div>
           </div>
-          
-        </div>  
-      
-    </div>
-  </div>
+        </div>
+      </div>
 
-  <div class="section-container">
-    <div class="container text-center">
-      <div class="row section-container-spacer">
-        <div class="col-xs-12 col-md-12">
-          <h2>Partners</h2>
-          <p>Praesent at feugiat est, at faucibus ipsum. Aenean condimentum mauris vel malesuada pulvinar. <br>Vestibulum sit amet hendrerit leo, quis vehicula mi.</p>
-        </div>  
+      {{-- what is elearning --}}
+      <div class="section-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+              <div class="text-center">
+                <h2>What is E-Learning ?</h2>
+                <p>A learning system based on formalised teaching but with the help of electronic resources is known as E-learning. 
+                    While teaching can be based in or out of the classrooms, the use of computers and the Internet forms the major component of E-learning.
+                </p>
+              </div>
+          </div>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-4">
-          <img src="./assets/images/profil-01.jpg" alt="" class="reveal img-responsive reveal-content image-center">
-          <h3>John Snow</h3>
-          <h4>UX designer</h4>
-          <p>Sed elementum vehicula nisl, a egestas velit rhoncus nec.Cras vel sapien tincidunt, lacinia risus vel, imperdiet neque.</p>
-          <p>
-            <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
-              <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-          </p>
+
+      {{-- Carousel --}}
+      <div class="section-container">
+        <div class="container">
+          <div class="row">      
+              <div class="col-xs-12">
+                <div id="carousel-example-generic" class="carousel carousel-fade slide" data-ride="carousel">
+                    
+                    <div class="carousel-inner" role="listbox">
+
+                        <div class="item active">
+                            <img class="img-responsive" src="./assets/images/eteacher.jpg" alt="First slide">
+                            <div class="carousel-caption card-shadow reveal">
+                              
+                              <h3>Teacher Benefits</h3>
+                              {{-- buttons --}}
+                              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                <span class="sr-only">Next</span>
+                              </a>
+                              <p>
+                              E-learning platforms allow teachers to stay connected to their students 
+                              outside of school hours in order to exchange resources, videos, ideas, methodologies, and pedagogical practices
+                              </p>
+                              
+                              <p>
+                                Among the benefits of e-learning for teachers is the large variety of different resources such as videos
+                                texts, presentations, and quizzes that they can use to adapt their tutoring methods to the learning styles of their students.
+                              </p>
+                              <a href="./project.html" class="btn btn-primary" title="">
+                                Discover
+                              </a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="./assets/images/estudent.jpg" alt="First slide">
+                            <div class="carousel-caption card-shadow reveal">
+
+                              <h3>Student Benefits</h3>
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                  <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              <p>
+                              Today's learners want relevant, mobile, self-paced, and personalized content. This need is fulfilled with 
+                              the online mode of learning; here, students can learn at their own comfort and requirement. Let's have an
+                              analytical look at the advantages of online learning.
+                              </p>
+                              
+                              <p>
+                                The online method of learning is best suited for everyone. This digital revolution has led to remarkable
+                                changes in how the content is accessed, consumed, discussed, and shared.
+                              </p>
+                              <a href="./project.html" class="btn btn-primary" title="">
+                                Discover
+                              </a>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+              </div>
+            </div>      
         </div>
-       
-        <div class="col-xs-12 col-md-4">
-          <img src="./assets/images/profil-02.jpg" alt="" class="reveal img-responsive reveal-content image-center">
-          <h3>Sansa Stark</h3>
-          <h4>UI designer</h4>
-          <p>Praesent at feugiat est, at faucibus ipsum. Aenean condimentum mauris vel malesuadav pulvinar. Vestibulum sit amet hendrerit leo, quis vehicula mi.</p>
-          <p>
-            <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
-              <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-          </p>
+      </div>
+
+    {{-- Courses --}}
+    <div class="section-container">
+      <div class="container text-center">
+        <div class="row section-container-spacer">
+          <div class="col-xs-12 col-md-12">
+            <h2>Courses</h2>
+            <p> Our Courses help students to specialise in all the vital subjects of international standard education. <br>Courses from top universities.</p>
+          </div>  
         </div>
-        <div class="col-xs-12 col-md-4">
-          <img src="./assets/images/profil-03.jpg" alt="" class="reveal img-responsive reveal-content image-center">
-          <h3>Gregor Clegane</h3>
-          <h4>Developer</h4>
-          <p>Busce rutrum nisi non dui placerat sodales. Vivamus feugiat rutrum malesuada. Nulla volutpat sapien ac gravida varius</p>
-          <p>
-            <a href="https://facebook.com/" class="social-round-icon fa-icon" title="">
-              <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a href="https://twitter.com/" class="social-round-icon fa-icon" title="">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.linkedin.com/" class="social-round-icon fa-icon" title="">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-          </p>
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+            <img src="./assets/images/sciencecourse.jpg" alt="" height="auto" class="reveal img-responsive reveal-content image-center">
+            <h3>Science</h3>
+            <p>the intellectual and practical activity encompassing the systematic study of the structure and behaviour of the physical
+               and natural world through observation and experiment.</p>
+          </div>
+        
+          <div class="col-xs-12 col-md-4">
+            <img src="./assets/images/computercourse.webp" alt="" class="reveal img-responsive reveal-content image-center">
+            <h3>Computer</h3>
+            <p>Computer science applies the principles of mathematics, engineering, and logic to a plethora of functions, including
+               algorithm formulation, software and hardware development, and artificial intelligence.</p>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <img src="./assets/images/astrocourse.jpg" alt="" class="reveal img-responsive reveal-content image-center">
+            <h3>Astronomy</h3>
+            <p>Astronomy is the study of everything in the universe beyond Earth's atmosphere. That includes objects 
+              we can see with our naked eyes, like the Sun , the Moon , the planets, and the stars .</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="section-container">
-    <div class="container text-center">
-      <div class="row section-container-spacer">
-        <div class="col-xs-12 col-md-12">
-          <h2 class="text-center">Customers</h2>
-          <p>Praesent at feugiat est, at faucibus ipsum. Aenean condimentum mauris vel malesuada pulvinar. <br>Vestibulum sit amet hendrerit leo, quis vehicula mi.</p>
-        </div>  
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-4">
-          <img src="./assets/images/logo-01.png" alt="" class="img-responsive reveal-content image-center">
-
+    {{-- Teachers --}}
+    <div class="section-container">
+      <div class="container text-center">
+        <div class="row section-container-spacer">
+          <div class="col-xs-12 col-md-12">
+            <h2>Teachers</h2>
+            <p> Our teachers work in a creative team environment and have the opportunity to <br>use innovative teaching strategies to support authentic, rigorous student outcomes.</br></p>
+          </div>  
         </div>
-       
-        <div class="col-xs-12 col-md-4">
-          <img src="./assets/images/logo-02.png" alt="" class="img-responsive reveal-content image-center">
-        </div>
-        <div class="col-xs-12 col-md-4">
-          <img src="./assets/images/logo-03.png" alt="" class="img-responsive reveal-content image-center">
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+            <img src="./assets/images/scienceteacher.jpg" alt="potrait" height="200" class="reveal img-responsive reveal-content image-center">
+            <h3>Dr. AK Dewan</h3>
+            <p>Other qualities of a good science teacher include being passionate about teaching effective, 
+              curriculum and standards-based science lessons, showing up for work early and helping their school excel.</p>
+          </div>
+        
+          <div class="col-xs-12 col-md-4">
+            <img src="./assets/images/computerteacher.jpg" alt="potrait" height="200" class="reveal img-responsive reveal-content image-center">
+            <h3>Mr. Mark Manosa</h3>
+            <p>Computer science applies the principles of mathematics, engineering, and logic to a plethora of functions, including
+               algorithm formulation, software and hardware development, and artificial intelligence.</p>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <img src="./assets/images/astroteacher.jpg" alt="" class="reveal img-responsive reveal-content image-center">
+            <h3>Dr. James Snow</h3>
+            <p>Become a professor of astronomy at the undergraduate or graduate level. Look for open positions at
+               your local university or universities out of state. </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
  
- 
+    {{-- contact --}}
   <div class="section-container contact-container">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-12">
           <div class="section-container-spacer">
             <h2 class="text-center">Get in touch</h2>
-            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="text-center">Contact us for the best online learning and lecture resources to help you hone your skills.</p>
           </div>
           <div class="card-container">
             <div class="card card-shadow col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 reveal">
@@ -258,7 +231,7 @@
                 </div>
               </form>
             </div>
-            <div class="card-image col-xs-12" style="background-image: url('/assets/images/img-01.jpg')">
+            {{-- <div class="card-image col-xs-12" style="background-image: url('/assets/images/img-02.jpg')"> --}}
             </div>
           </div>
         </div>  
