@@ -25,6 +25,7 @@
 </head>
 <body>
     <div id="app">
+        {{-- navigation bar --}}
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm mb-0">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -36,12 +37,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    {{-- <ul class="navbar-nav mr-auto bg-danger">
 
-                    </ul>
+                    </ul> --}}
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav w-100" style="justify-content: flex-end">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

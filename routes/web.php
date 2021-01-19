@@ -19,6 +19,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::group(['prefix' => 'coordinator', 'middleware' => 'coordinator'], function()
+{
+    // Your routes
+
+    Route::get('/','App\Http\Controllers\CoordinatorController@index');
+});
+
 // roles
 Route::get('/coordinator', 'App\Http\Controllers\CoordinatorController@index')->name('coordinator')->middleware('coordinator');
 Route::get('/teacher', 'App\Http\Controllers\TeacherController@index')->name('teacher')->middleware('teacher');

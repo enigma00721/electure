@@ -218,13 +218,13 @@
                         <span class="fa-icon">
                           <i class="fa fa-phone" aria-hidden="true"></i>
                         </span>
-                        + 33 9 07 45 12 65
+                        + 977 9818 505 260
                       </li>
                       <li>
                         <span class="fa-icon">
                           <i class="fa fa fa-map-o" aria-hidden="true"></i>
                         </span>
-                        42 rue Moulbert 75016 Paris
+                        Jhamsikhel, Kathmandu
                       </li>
                     </ul>
                   </div>
