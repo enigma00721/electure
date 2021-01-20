@@ -10,10 +10,11 @@ Auth::routes();
 
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 
-// courses
-Route::group(['prefix' => 'courses'], function(){
+
+// coordinators
+Route::group(['prefix' => 'classes'], function(){
     Route::get('/',function () {
-        return view('coordinator.courses');
+        return view('coordinator.classes');
     });
     // Route::post('/',function () {
     //     return view('coordinator.courses');
@@ -64,3 +65,5 @@ Route::get('/teacher', 'App\Http\Controllers\TeacherController@index')->name('te
 Route::get('/student', 'App\Http\Controllers\StudentController@index')->name('student')->middleware('student');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('courses', 'App\Http\Controllers\CourseController');
