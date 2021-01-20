@@ -7,6 +7,8 @@
     
     <title>@yield('title')</title>
 
+    <!-- template -->
+    <script type="text/javascript" src="{{ asset('js/main.0cf8b554.js') }}"></script>
     <!-- Favicon icon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
@@ -109,7 +111,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/coordinator"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard"
                                 aria-expanded="false">
                             <i class="fa fa-columns" aria-hidden="true"></i>
                                 <span class="hide-menu">Dashboard</span>
@@ -124,21 +126,28 @@
                         </li>
                         <hr>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/coordinator/courses"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/classes"
+                                aria-expanded="false">
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Classes</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/courses"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Courses</span>
                             </a>
-                        </li>
+                        </li><hr>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/coordinator/coordinators"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/coordinators"
                                 aria-expanded="false">
                             <i class="fa fa-user-secret" aria-hidden="true"></i>
                                 <span class="hide-menu">Coordinators</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/coordinator/teachers"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/teachers"
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Teachers</span>

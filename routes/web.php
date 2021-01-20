@@ -2,45 +2,60 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::group(['prefix' => 'coordinator', 'middleware' => 'coordinator'], function()
-{
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 
-    Route::get('/','App\Http\Controllers\CoordinatorController@index');
-    
-    // courses
-    Route::group(['prefix' => 'courses'], function()
-    {
-        Route::get('/',function () {
-            return view('coordinator.courses');
-        });
-        // Route::post('/',function () {
-        //     return view('coordinator.courses');
-        // });
-        // Route::put('/{id}',function () {
-        //     return view('coordinator.courses');
-        // });
-        // Route::delete('/{id}',function () {
-        //     return view('coordinator.courses');
-        // });
+// courses
+Route::group(['prefix' => 'courses'], function(){
+    Route::get('/',function () {
+        return view('coordinator.courses');
     });
+    // Route::post('/',function () {
+    //     return view('coordinator.courses');
+    // });
+    // Route::put('/{id}',function () {
+    //     return view('coordinator.courses');
+    // });
+    // Route::delete('/{id}',function () {
+    //     return view('coordinator.courses');
+    // });
+});
+
+// teachers
+Route::group(['prefix' => 'teachers'], function(){
+    Route::get('/',function () {
+        return view('coordinator.teachers');
+    });
+    // Route::post('/',function () {
+    //     return view('coordinator.courses');
+    // });
+    // Route::put('/{id}',function () {
+    //     return view('coordinator.courses');
+    // });
+    // Route::delete('/{id}',function () {
+    //     return view('coordinator.courses');
+    // });
+});
+
+// coordinators
+Route::group(['prefix' => 'coordinators'], function(){
+    Route::get('/',function () {
+        return view('coordinator.coordinators');
+    });
+    // Route::post('/',function () {
+    //     return view('coordinator.courses');
+    // });
+    // Route::put('/{id}',function () {
+    //     return view('coordinator.courses');
+    // });
+    // Route::delete('/{id}',function () {
+    //     return view('coordinator.courses');
+    // });
 });
 
 // roles
