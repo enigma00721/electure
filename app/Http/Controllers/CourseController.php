@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
-
+use Auth;
 class CourseController extends Controller
 {
     /**
@@ -38,7 +38,13 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        Course::Create($request->all());
+
+        $data = [
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+        ];
+
+        Course::create($data);
 
         return redirect()->route('courses.index')->with('message', 'Course created successfully!');
     }
@@ -91,7 +97,10 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        $course = Course::findOrFail($course);
+
+        // $course = Course::findOrFail($course);
+
+        // return $course;
 
         $course->delete();
 

@@ -11,7 +11,8 @@ class Course extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['name', 'user_id'];
+
+    protected $guarded = ['id'];
 
     public function user()
     {
