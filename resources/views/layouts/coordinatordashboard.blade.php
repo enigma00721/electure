@@ -8,7 +8,7 @@
     <title>@yield('title')</title>
 
     <!-- template -->
-    <script type="text/javascript" src="{{ asset('js/main.0cf8b554.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('js/main.0cf8b554.js') }}"></script> --}}
     <!-- Favicon icon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css') }}">
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
+    <script src="{{asset('js/app.js')}}"></script>
 
 </head>
 <body>
@@ -129,7 +131,7 @@
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/classes"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Classes</span>
+                                <span class="hide-menu">Grades</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -147,7 +149,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/teachers"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('teacher') }}"
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Teachers</span>
@@ -192,5 +194,8 @@
     <script src="{{ asset('plugins/bower_components/chartist/dist/chartist.min.js') }}"></script>
     <script src="{{ asset('plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
     <script src="{{ asset('js/pages/dashboards/dashboard1.js') }}"></script>
+
+
+    @yield('script')
 </body>
 </html>
