@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css') }}">
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
-    <script src="{{asset('js/app.js')}}"></script>
+    
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
 </head>
 <body>
@@ -182,7 +182,7 @@
     <script src="{{ asset('plugins/bower_components/popper.js/dist/umd/popper.min.js') }}"></script>
     {{-- <script src="{{ asset('bootstrap/dist/js/bootstrap.min.js') }}"></script> --}}
     <script src="{{ asset('js/app-style-switcher.js') }}"></script>
-    <script src="{{ asset('plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+    <!-- <script src="{{ asset('plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js') }}"></script> -->
     <!--Wave Effects -->
     <script src="{{ asset('js/waves.js') }}"></script>
     <!--Menu sidebar -->
@@ -194,7 +194,8 @@
     <script src="{{ asset('plugins/bower_components/chartist/dist/chartist.min.js') }}"></script>
     <script src="{{ asset('plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
     <script src="{{ asset('js/pages/dashboards/dashboard1.js') }}"></script>
-
+    <script src="{{asset('js/app.js')}}"></script>
+    
 
     @yield('script')
 </body>

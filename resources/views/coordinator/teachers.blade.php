@@ -17,19 +17,14 @@
             </div>
             <!-- /.col-lg-12 -->
         </div>
+
         {{-- Container --}}
         <div class="container-fluid">
             {{-- Start Page Content --}}
             <div class="row">
                 <div class="col-sm-12">
                     <div class="white-box">
-                        {{-- session message --}}
-                        @if(session('status'))
-                            <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                            </div>
-                        @endif
-                        {{-- create  --}}
+                       
                         <div>
                             <p>
                                 <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#createTeacher">
@@ -46,7 +41,7 @@
                                                 {{-- name --}}
                                                 <div class="mb-2 col-md-3 col-sm">
                                                     <label for="name">Name</label>
-                                                    <input type="text" name="name" class="form-control" id="name" required placeholder="Enter Teacher Name"
+                                                    <input type="text" name="name" class="form-control"  required placeholder="Enter Teacher Name"
                                                     value="{{ old('name') }}">
                                                     @error('name')
                                                         <div class="text-danger">
@@ -57,7 +52,7 @@
                                                 {{-- email --}}
                                                 <div class="mb-2 col-md-3 col-sm">
                                                     <label for="email">Email</label>
-                                                    <input type="email" name="email" class="form-control" id="email" required placeholder="Enter Teacher Email"
+                                                    <input type="email" name="email" class="form-control"  required placeholder="Enter Teacher Email"
                                                     value="{{ old('email') }}">
                                                     @error('email')
                                                         <div class="text-danger">
@@ -68,7 +63,7 @@
                                                 {{-- password --}}
                                                 <div class="mb-2 col-md-3 col-sm">
                                                     <label for="password">Password</label>
-                                                    <input type="password" name="password" class="form-control" id="password" required placeholder="Enter Teacher Password"
+                                                    <input type="password" name="password" class="form-control"  required placeholder="Enter Teacher Password"
                                                     value="{{ old('password') }}">
                                                     @error('password')
                                                         <div class="text-danger">
@@ -79,7 +74,7 @@
                                                 {{-- repeat password --}}
                                                 <div class="mb-2 col-md-3 col-sm">
                                                     <label for="password_confirmation">Repeat Password</label>
-                                                    <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" required placeholder="Enter Teacher Password"
+                                                    <input type="password" name="password_confirmation" class="form-control"  required placeholder="Enter Teacher Password"
                                                     value="{{ old('password_confirmation') }}">
                                                 </div>
                                             </div>
@@ -108,21 +103,18 @@
                                     @if ($teachers->count())
                                         @foreach ($teachers as $teacher)
                                             <tr>
-                                                <td>{{ $loop->index+1 }}</td>
+                                                <td>{{ $teacher->id}}</td>
                                                 <td>{{ $teacher->name }}</td>
                                                 <td>{{ $teacher->email }}</td>
                                                 <td>{{ $teacher->role }}</td>
                                                 <td style="padding: 10px">
                                                     <div class="d-flex">
+
                                                         {{-- update modal trigger --}}
-                                                        <button type="submit" class="btn bg-white border-white edit-teacher" 
-                                                        data-toggle="modal" data-target="#editModal"
-                                                        id="{{$teacher->id}}"
-                                                        name="{{$teacher->name}}" 
-                                                        email="{{$teacher->email}}"
-                                                        >
+                                                        <button type="submit" class="btn bg-white border-white edit-teacher" >
                                                             <i class="fas fa-edit text-primary" aria-hidden="true"></i>
                                                         </button>
+
                                                         {{-- delete --}}
                                                         <form action="{{ route('teacher.delete', $teacher->id) }}" method="post">
                                                             @method('delete')
@@ -144,7 +136,7 @@
             </div>
 
             <!-- Update Modal -->
-            <div class="modal fade" id="editModal" aria-hidden="true">
+            <div id="editModalTeacher" class="modal fade"  aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         {{-- title --}}
@@ -154,58 +146,65 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                {{-- name --}}
-                                <div class="mb-2">
-                                    <label for="name">Name</label>
-                                    <input type="text" name="name" class="form-control name" required placeholder="Enter Teacher Name"
-                                    value="{{ old('name') }}">
-                                    @error('name')
-                                        <div class="text-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                {{-- email --}}
-                                <div class="mb-2">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control email" required placeholder="Enter Teacher Email"
-                                    value="{{ old('email') }}">
-                                    @error('email')
-                                        <div class="text-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                {{-- password --}}
-                                <div class="mb-2">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" class="form-control password" required placeholder="Enter Teacher Password"
-                                    value="{{ old('password') }}">
-                                    @error('password')
-                                        <div class="text-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                {{-- confirm password --}}
-                                <div class="mb-2">
-                                    <label for="password_confirmation">Repeat Password</label>
-                                    <input type="password" name="password_confirmation" class="form-control" required placeholder="Enter Teacher Password"
-                                    value="{{ old('password_confirmation') }}">
+
+                        <form id="updateTeacherForm" method="POST">
+                          @csrf
+
+                            <div class="modal-body">
+                                <input type="hidden" name="id" id="id">
+                                <div class="form-group">
+                                    {{-- name --}}
+                                    <div class="mb-2">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" 
+                                        class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                         required placeholder="Enter Teacher Name" id="name" 
+                                        value="{{ old('name') }}">
+                                        @error('name')
+                                            <div class="text-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    {{-- email --}}
+                                    <div class="mb-2">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" 
+                                        class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" required placeholder="Enter Teacher Email" id="email"
+                                        value="{{ old('email') }}">
+                                        @error('email')
+                                            <div class="text-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    {{-- password --}}
+                                    <div class="mb-2">
+                                        <label for="password">New Password</label>
+                                        <input type="password" name="password" class="form-control password"  placeholder="Enter Teacher Password" id="password">
+                                        @error('password')
+                                            <div class="text-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    {{-- confirm password --}}
+                                    <div class="mb-2">
+                                        <label for="password_confirmation">Repeat New Password</label>
+                                        <input type="password" name="password_confirmation" 
+                                        class="form-control"  
+                                        placeholder="Enter Teacher Password"
+                                        id="password_confirmation">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            {{-- submit update --}}
-                            <form id="updateSubmitForm" action="" method="post">
-                                @csrf
-                                @method('patch')
-                                <button id="save" class="btn btn-primary submit-edit">Save changes</button>
-                            </form>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                {{-- submit update --}}
+                                    <button id="save" class="btn btn-primary submit-edit">Save changes</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -216,27 +215,68 @@
 
 
 @section('script')
-{{-- BOOTSTRAP MODAL show.bs.modal NOT WORKING --}}
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script>
         $(document).ready(function(){
             // on button click
-            $(document).on('click', '.edit-teacher', function(event){
-                // get selected value from table
-                var id = this.getAttribute("id");
-                var name = this.getAttribute("name");
-                var email = this.getAttribute("email");
-                console.log({id, email})
-                // store table value in modal
-                var parent = $("#editModal"); 
-                $(".name", parent).val(name) ;
-                $(".email", parent).val(email) ;
-                $(".password", parent).val('') ;
-                $("#updateSubmitForm", parent).attr('action', `http://localhost:8000/teacher/${id}`);
+            $('.edit-teacher').on('click',function(){
+
+                            $('#editModalTeacher').modal('show');
+
+
+                $tr = $(this).closest('tr');
+
+                // data cotains all td data from the colosed tr i.e selected row/tr
+                var data = $tr.children('td').map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);          
+
+                $('#id').val(data[0]);
+                $('#name').val(data[1]);
+                $('#email').val(data[2]);
+
+                $('#updateTeacherForm').on('submit',function(e){
+                    e.preventDefault();
+                    var id = $('#id').val();
+
+                    console.log('form submiteed');
+                    console.log(id);
+
+                    $.ajax({
+                        type:'POST',
+                        url:"/teacher/update/"+id,
+                        data:$('#updateTeacherForm').serialize(),
+                        success:function(response){
+                            
+                            $('#editModalTeacher').modal('hide');
+
+                            var title = response.message
+
+                            swal({
+                              title: title,
+                              icon: 'warning',
+                              showCancelButton: true,
+                              confirmButtonColor: '#3085d6',
+                              cancelButtonColor: '#d33',
+                              confirmButtonText: 'Okay'
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                 window.location.reload();
+                              }
+                            })
+                            window.location.reload();
+
+                        },
+                        error:function(error){
+                            console.log(error);
+                        }
+                    });
+                })
             });
 
-            $(document).on('click', '.submit-edit', function(event){
-                // $("#updateSubmitForm").submit();
-            });
 
         });
     </script>

@@ -24,10 +24,10 @@ Route::resource('teacher', TeacherController::class,[
     'names' => [
         'index' => 'teacher',
         'store' => 'teacher.new',
-        'update' => 'teacher.update',
         'destroy' => 'teacher.delete',
     ]
-]);
+])->except('update');
+Route::post('teacher/update/{id}','App\Http\Controllers\TeacherController@update')->name('teacher.update');
 
 // roles
 Route::get('/coordinator', 'App\Http\Controllers\CoordinatorController@index')->name('coordinator')->middleware('coordinator');
